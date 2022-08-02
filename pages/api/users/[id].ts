@@ -1,6 +1,5 @@
 import { NextApiHandler } from "next";
 import api from "../../../libs/api";
-import prisma from "../../../libs/prisma";
 
 // GET ONE USER
 const HandlerGet: NextApiHandler = async (req, res) => {

@@ -55,8 +55,8 @@ export default function Home({ loggedUser }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  // const session = await unstable_getServerSession(context.req, context.res, authOptions);
-  // if (!session) return { redirect: { destination: '/auth/login', permanent: true } }
+  const session = await unstable_getServerSession(context.req, context.res, authOptions);
+  if (!session) return { redirect: { destination: '/auth/login', permanent: true } }
 
   const users = await api.getAllUsers()
 

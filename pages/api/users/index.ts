@@ -13,8 +13,8 @@ const HandlerGet: NextApiHandler = async (req, res) => {
 
 // CREATE USER
 const HandlerPost: NextApiHandler = async (req, res) => {
-    const { name, email } = req.body
-    const newUser = await api.createUser(name, email)
+    const { name, email, password } = req.body
+    const newUser = await api.createUser(name, email, password)
         .catch((e) => {
             res.status(400).json({ error: e })
         })

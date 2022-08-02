@@ -1,4 +1,5 @@
 import prisma from "./prisma"
+import { compare } from 'bcryptjs';
 
 const api = {
     getAllUsers: async (perPage: number = 5, page: number = 1, active: boolean = true) => {
@@ -25,9 +26,9 @@ const api = {
         })
     },
 
-    createUser: async (name: string, email: string) => {
+    createUser: async (name: string, email: string, password: string) => {
         return await prisma.user.create({
-            data: { name, email }
+            data: { name, email, password }
         })
     },
 
@@ -41,6 +42,18 @@ const api = {
         return await prisma.user.findUnique({
             where: { email }
         })
+    },
+
+    verifyCredentials: async (email: string, password: string) => {
+        const user = await prisma.user.findUnique({
+            where: { email }
+        })
+        if (user) {
+            if (await compare(password, user.password)) {
+                return user;
+            }
+        }
+        return null;
     },
 
     updateUser: async (id: number, name?: string, active?: string, role?: string) => {

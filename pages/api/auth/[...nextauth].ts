@@ -9,12 +9,12 @@ export const authOptions: NextAuthOptions = {
         CredentialsProvider({
             id: 'credentials',
             credentials: {
-                name: { label: 'Nome', type: 'text' },
+                password: { label: 'Senha', type: 'password' },
                 email: { label: 'E-mail', type: 'email' },
             },
             authorize: async (credentials, req) => {
-                if (credentials && credentials.email && credentials.name) {
-                    const user = await api.getOneUserByEmail(credentials.email)
+                if (credentials && credentials.email && credentials.password) {
+                    const user = await api.verifyCredentials(credentials.email, credentials.password)
                     if (user) {
                         return user;
                     }

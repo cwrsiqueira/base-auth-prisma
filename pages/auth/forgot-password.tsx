@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import styles from '../../styles/Auth.module.css'
 
-const Login = () => {
+const ForgotPassword = () => {
     const [email, setEmail] = useState('admin@email.com');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -42,12 +42,12 @@ const Login = () => {
         <div className={styles.container}>
 
             <Head>
-                <title>Site | Login</title>
+                <title>Site | Resetar Senha</title>
             </Head>
 
             <Image src={"/vercel.svg"} alt="logo" width={200} height={200} />
 
-            <div className={styles.title}>Login</div>
+            <div className={styles.title}>Resetar Senha</div>
 
             <div className={styles.errorArea}>
                 <div className={error ? styles.error : ''}>{error}</div>
@@ -56,24 +56,16 @@ const Login = () => {
             <form onSubmit={handlerSubmit}>
                 <input className={styles.input} type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Digite o email" />
                 <br /><br />
-                <input className={styles.input} type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Digite a senha" />
-                <br /><br />
-                <input className={`${styles.input} ${styles.btn}`} type="submit" value="Logar" />
+                <input className={`${styles.input} ${styles.btn}`} type="submit" value="Resetar" />
             </form>
 
             <div className={styles.link}>
-                <Link href={"/auth/forgot-password"}>
-                    <a>Esqueci a senha</a>
-                </Link>
-            </div>
-
-            <div className={styles.link}>
-                <Link href={"/auth/register"}>
-                    <a>Não tenho cadastro</a>
+                <Link href={"/auth/login"}>
+                    <a>Fazer Login</a>
                 </Link>
             </div>
         </div>
     );
 }
 
-export default Login;
+export default ForgotPassword;

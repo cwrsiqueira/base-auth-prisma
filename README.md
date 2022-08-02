@@ -13,6 +13,7 @@
 - Verify seed code in the prisma/seed.ts file
 - npx prisma generate
 - npx prisma migrate dev
+- npx prisma db seed
 
 ## OR
 
