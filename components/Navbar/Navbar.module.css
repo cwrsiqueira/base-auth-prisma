@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;
+    list-style: none;
+    padding: 20px;
+    background-color: black;
+}
+
+.navbar a {
+    text-decoration: none;
+    margin: 0 15px;
+    color: #bbb;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    color: #fff
+}
+
+.active a {
+    text-decoration: underline;
+    color: #fff
+}
