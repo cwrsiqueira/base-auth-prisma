@@ -4,8 +4,8 @@ import { useState } from "react";
 import styles from '../../styles/Auth.module.css'
 
 const Login = () => {
-    const [name, setName] = useState('teste');
-    const [email, setEmail] = useState('teste@email.com');
+    const [name, setName] = useState('Admin');
+    const [email, setEmail] = useState('admin@email.com');
     const [error, setError] = useState('');
 
     const router = useRouter();
